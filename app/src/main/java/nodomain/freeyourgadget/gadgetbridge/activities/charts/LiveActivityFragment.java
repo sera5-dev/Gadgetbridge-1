@@ -201,7 +201,7 @@ public class LiveActivityFragment extends AbstractChartFragment {
         //
         // if heart-rate > 100, then play alikhlas
         // probably in this function
-        if(mHeartRate > 100) {
+        if(mHeartRate > 100 || mMaxHeartRate > 100) {
             MediaPlayer mPlayer2;
             mPlayer2= MediaPlayer.create(getContext(), R.raw.alikhlas);
 

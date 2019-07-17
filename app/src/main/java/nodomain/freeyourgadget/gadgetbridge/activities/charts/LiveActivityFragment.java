@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Paint;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -196,6 +197,18 @@ public class LiveActivityFragment extends AbstractChartFragment {
             mMaxHeartRate = mHeartRate;
         }
         mMaxHeartRateView.setText(getContext().getString(R.string.live_activity_max_heart_rate, heartRate, mMaxHeartRate));
+
+        //
+        // if heart-rate > 100, then play alikhlas
+        // probably in this function
+        if(mHeartRate > 100) {
+            MediaPlayer mPlayer2;
+            mPlayer2= MediaPlayer.create(getContext(), R.raw.alikhlas);
+
+            if(!mPlayer2.isPlaying())
+                mPlayer2.start();
+        }
+
     }
 
     private int getCurrentHeartRate() {
